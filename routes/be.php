@@ -8,8 +8,12 @@ Route::prefix("admin")->group(function () {
     })->name('admin.dashboard');
 
     Route::prefix("user")->group(function () {
-        Route::get('/add', function () {
-            return view('backend.user.add');
-        })->name('admin.user.add');
+        Route::get('/add',
+            [\App\Http\Controllers\Admin\UserController::class,
+                'add'])->name('admin.user.add');
+        Route::post('/add',
+            [\App\Http\Controllers\Admin\UserController::class, 'doAdd'])
+            ->name('admin.user.do-add');
     });
+
 });

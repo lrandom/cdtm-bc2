@@ -8,28 +8,32 @@
         <form>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <label for="input-name">Name</label>
+                    <input type="text" name="name" class="form-control" id="input-name" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="input-phone">Phone</label>
+                    <input type="text" name="phone" class="form-control" id="input-phone" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                            <span class="input-group-text">Upload</span>
-                        </div>
-                    </div>
+                    <label for="input-address">Address</label>
+                    <input type="text" name="address" class="form-control" id="input-address" placeholder="Enter email">
                 </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <div class="form-group">
+                    <label for="input-email">Email address</label>
+                    <input type="email" name="email" class="form-control" id="input-email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="input-password">Password</label>
+                    <input type="password" name="password" class="form-control" id="input-password"
+                           placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="select-level">Level</label>
+                    <select id="select-level" name="level" class="form-control">
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                    </select>
                 </div>
             </div>
 
