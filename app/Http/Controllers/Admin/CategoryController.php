@@ -40,6 +40,7 @@ class CategoryController extends Controller
 
     function list()
     {
-
+        $list=Category::paginate(10);
+        return view('backend.category.list', compact('list'));
     }
 }
