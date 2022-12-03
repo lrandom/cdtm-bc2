@@ -14,6 +14,7 @@ class UserController extends Controller
     {
         return view('backend.user.add');
     }
+
     public function doAdd(Request $request)
     {
         $request->validate([
@@ -69,5 +70,38 @@ class UserController extends Controller
     {
         $user = User::find($id);
         return view('backend.user.edit', compact('user'));
+    }
+
+    public function doEdit($id, Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'level' => 'required',
+            'address' => 'required',
+            'phone' => 'required|numeric|min:10',
+        ], [
+            'name.required' => 'Name is required',
+            'email.required' => 'Email is required',
+            //'name.unique' => 'Name is already exists',
+            'email.email' => 'Email is invalid',
+            //'email.unique' => 'Email is already exists',
+            'level.required' => 'Level is required',
+            'address.required' => 'Address is required',
+            'phone.required' => 'Phone is required',
+            'phone.min' => 'Phone must be at least 10 characters',
+            'phone.numeric' => 'Phone is invalid',
+        ]);
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->level = $request->level;
+        $user->address = $request->address;
+        $user->phone = $request->phone;
+        $user->save();
+        return redirect()->route('admin.user.edit',['id'=>$user->id])->with('success', 'Edit user successfully');
     }
 }

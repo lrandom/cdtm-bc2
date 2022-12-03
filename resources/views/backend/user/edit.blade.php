@@ -5,7 +5,7 @@
             <h3 class="card-title">Quick Example</h3>
         </div>
 
-        <form method="post" action="{{route('admin.user.do-add')}}">
+        <form method="post" action="{{route('admin.user.do-edit',['id'=>$user->id])}}">
             @csrf
             <div class="card-body">
                 <div class="form-group">
