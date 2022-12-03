@@ -64,4 +64,10 @@ class UserController extends Controller
         $list = User::all();
         return view('backend.user.list', compact('list'));
     }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('backend.user.edit', compact('user'));
+    }
 }

@@ -18,6 +18,8 @@ Route::prefix("admin")->group(function () {
             'delete'])->name('admin.user.delete');
         Route::get('/',[\App\Http\Controllers\Admin\UserController::class,'list'])
             ->name('admin.user.list');
+        Route::get('/edit/{id}',[\App\Http\Controllers\Admin\UserController::class,'edit'])
+            ->name('admin.user.edit');
     });
 
 });

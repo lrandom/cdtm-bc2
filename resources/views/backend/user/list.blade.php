@@ -33,7 +33,7 @@
                         @endif
                     </td>
                     <td>
-                        {{--                            <a href="{{route('admin.user.edit', ['id' => $item->id])}}" class="btn btn-primary">Edit</a>--}}
+                        <a href="{{route('admin.user.edit', ['id' => $item->id])}}" class="btn btn-primary">Edit</a>
                         <a onclick="return confirm('Are you sure you want to delete?')" href="{{route('admin.user.delete', ['id' => $item->id])}}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
