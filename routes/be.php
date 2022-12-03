@@ -24,4 +24,20 @@ Route::prefix("admin")->group(function () {
             ->name('admin.user.do-edit');
     });
 
+    Route::prefix("category")->group(function () {
+        Route::get('/add',
+            [\App\Http\Controllers\Admin\CategoryController::class,
+                'add'])->name('admin.category.add');
+        Route::post('/add',
+            [\App\Http\Controllers\Admin\CategoryController::class, 'doAdd'])
+            ->name('admin.category.do-add');
+        Route::get('/delete/{id}', [\App\Http\Controllers\Admin\CategoryController::class,
+            'delete'])->name('admin.category.delete');
+        Route::get('/', [\App\Http\Controllers\Admin\CategoryController::class, 'list'])
+            ->name('admin.category.list');
+        Route::get('/edit/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'edit'])
+            ->name('admin.category.edit');
+        Route::post('/edit/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'doEdit'])
+            ->name('admin.category.do-edit');
+    });
 });
