@@ -48,4 +48,20 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('admin.user.add')->with('success', 'Add user successfully');
     }
+
+    public function delete($id)
+    {
+        //tìm user theo id
+        $user = User::find($id);
+        //xoá user
+        $user->delete();
+        //chuyển người dùng về trang list với thông báo xoá thành công
+        return redirect()->route('admin.user.list')->with('success', 'Delete user successfully');
+    }
+
+    public function list()
+    {
+        $list = User::all();
+        return view('backend.user.list', compact('list'));
+    }
 }

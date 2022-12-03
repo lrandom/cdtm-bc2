@@ -14,6 +14,10 @@ Route::prefix("admin")->group(function () {
         Route::post('/add',
             [\App\Http\Controllers\Admin\UserController::class, 'doAdd'])
             ->name('admin.user.do-add');
+        Route::get('/delete/{id}', [\App\Http\Controllers\Admin\UserController::class,
+            'delete'])->name('admin.user.delete');
+        Route::get('/',[\App\Http\Controllers\Admin\UserController::class,'list'])
+            ->name('admin.user.list');
     });
 
 });
