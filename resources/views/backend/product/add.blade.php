@@ -1,5 +1,6 @@
 @extends('backend.layout')
 @section('content')
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Quick Example</h3>
@@ -49,7 +50,9 @@
                 <div class="form-group">
                     <label for="input-category">Category</label>
                     <select id="input-category" name="category_id" class="form-control">
-
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -66,7 +69,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="card-footer">
@@ -74,4 +76,18 @@
             </div>
         </form>
     </div>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#input-description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 400px;
+        }
+    </style>
 @endsection
