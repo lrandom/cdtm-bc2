@@ -40,4 +40,10 @@ Route::prefix("admin")->group(function () {
         Route::post('/edit/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'doEdit'])
             ->name('admin.category.do-edit');
     });
+
+    Route::prefix("product")->group(function () {
+        Route::get('/add',
+            [\App\Http\Controllers\Admin\ProductController::class,
+                'add'])->name('admin.product.add');
+    });
 });
