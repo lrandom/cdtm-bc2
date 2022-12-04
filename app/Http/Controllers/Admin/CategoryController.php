@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -28,9 +29,10 @@ class CategoryController extends Controller
         return redirect()->route('admin.category.add')->with('success', 'Add category successfully');
     }
 
-    function edit()
+    public function edit($id)
     {
-
+        $category = Category::find($id);
+        return view('backend.category.edit', compact('category'));
     }
 
     function doEdit()
@@ -40,7 +42,17 @@ class CategoryController extends Controller
 
     function list()
     {
-        $list=Category::paginate(10);
+        $list = Category::paginate(10);
         return view('backend.category.list', compact('list'));
+    }
+
+    public function delete($id)
+    {
+        //tìm user theo id
+        $category = Category::find($id);
+        //xoá user
+        $category->delete();
+        //chuyển người dùng về trang list với thông báo xoá thành công
+        return redirect()->route('admin.category.list')->with('success', 'Delete user successfully');
     }
 }

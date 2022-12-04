@@ -221,8 +221,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                         </ul>
+
                     </li>
-                    <li class="nav-item">
+
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Category
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.category.list')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>List</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.category.add')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Add</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                  {{--  <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
@@ -230,7 +255,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <span class="right badge badge-danger">New</span>
                             </p>
                         </a>
-                    </li>
+                    </li>--}}
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
