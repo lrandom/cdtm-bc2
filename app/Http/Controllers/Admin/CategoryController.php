@@ -35,9 +35,17 @@ class CategoryController extends Controller
         return view('backend.category.edit', compact('category'));
     }
 
-    function doEdit()
+    function doEdit($id, Request $request)
     {
-
+        $request->validate([
+            'name' => 'required',
+        ], [
+            'name.required' => 'Name is required',
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('admin.category.edit', ['id' => $id])->with('success', 'Edit category successfully');
     }
 
     function list()
