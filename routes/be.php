@@ -45,5 +45,7 @@ Route::prefix("admin")->group(function () {
         Route::get('/add',
             [\App\Http\Controllers\Admin\ProductController::class,
                 'add'])->name('admin.product.add');
+        Route::post('/add',[\App\Http\Controllers\Admin\ProductController::class,'doAdd'])
+            ->name('admin.product.do-add');
     });
 });

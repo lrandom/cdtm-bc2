@@ -6,7 +6,7 @@
             <h3 class="card-title">Quick Example</h3>
         </div>
 
-        <form method="post" action="{{route('admin.user.do-add')}}">
+        <form method="post" enctype="multipart/form-data" action="{{route('admin.product.do-add')}}">
             @csrf
             <div class="card-body">
                 <div class="form-group">
@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <label for="input-quantity">Quantity</label>
-                    <input type="number" name="price" class="form-control" id="input-quantity"
+                    <input type="number" name="quantity" class="form-control" id="input-quantity"
                            placeholder="Enter email">
                 </div>
                 @error('quantity')
@@ -60,7 +60,7 @@
                     <label for="exampleInputFile">Thumbnail</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" multiple="multiple" name="thumbnails" class="custom-file-input"
+                            <input type="file" name="thumbnails" class="custom-file-input"
                                    id="exampleInputFile">
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
